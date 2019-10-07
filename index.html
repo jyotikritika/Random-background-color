@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Change background color randomly</title>
+    </head>
+    <style>
+        body {
+            background-color: black;
+        }
+
+        #new-color-button {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+
+            height: 50px;
+            width: 100px;
+
+            border-radius: 25px;
+        }
+        button:focus {outline:0;}
+    </style>
+    <body id="background">
+        <div>
+            <button id="new-color-button" type="button" onclick="changeColor()">New color</button>
+        </div>
+        <script>
+            function changeColor() {
+                console.log("function called on button click!");
+                document.getElementById("background").style.backgroundColor = generateRandomColor();
+            }
+            function generateRandomColor() {
+                arr = ["aqua","red","green","yellow","blue","purple","brown"];
+                index = Math.floor(Math.random() * (arr.length));
+                return arr[index];
+            }
+        </script>
+    </body>
+</html>
